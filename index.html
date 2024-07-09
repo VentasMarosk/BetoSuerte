@@ -11,7 +11,7 @@
             background-size: cover;
             background-position: center;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
             color: white;
         }
         .container {
@@ -20,6 +20,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             display: inline-block;
+            width: 100%;
             max-width: 600px;
         }
         label {
@@ -29,8 +30,8 @@
         input {
             margin-top: 5px;
             padding: 10px;
-            width: 80%;
-            max-width: 300px;
+            width: 100%;
+            box-sizing: border-box;
         }
         button {
             margin-top: 20px;
@@ -40,13 +41,14 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            width: 100%;
         }
         button:hover {
             background-color: #45a049;
         }
         .icono {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             display: block;
             margin: 0 auto 20px;
         }
@@ -55,7 +57,6 @@
         }
         .testimonio img {
             width: 100%;
-            max-width: 400px;
             border-radius: 10px;
             margin-top: 20px;
         }
@@ -63,6 +64,21 @@
             background-color: rgba(0, 0, 0, 0.8);
             padding: 15px;
             border-radius: 10px;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            .icono {
+                width: 60px;
+                height: 60px;
+            }
+            button {
+                padding: 10px;
+            }
         }
     </style>
     <script>
@@ -73,7 +89,7 @@
             var año = document.getElementById("año").value;
             
             var mensaje = `Hola, mi nombre es ${nombre}. Mi fecha de nacimiento es ${dia}/${mes}/${año}. Me gustaría recibir mi número de la suerte.`;
-            var url = `https://wa.me/3214840983?text=${encodeURIComponent(mensaje)}`;
+            var url = `https://wa.me/573214840983?text=${encodeURIComponent(mensaje)}`;
             
             window.open(url, '_blank');
         }
