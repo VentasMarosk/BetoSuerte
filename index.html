@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Números de la Suerte Personalizados</title>
     <style>
+        @keyframes sparkles {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
         body {
             font-family: Arial, sans-serif;
             background-image: url('https://github.com/VentasMarosk/BetoSuerte/blob/330672ab03d7e6166338d841daf2eb72f3f23317/23.jpg?raw=true');
@@ -32,6 +36,12 @@
             padding: 10px;
             width: 100%;
             box-sizing: border-box;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid white;
+        }
+        input::placeholder {
+            color: white;
         }
         button {
             margin-top: 20px;
@@ -51,6 +61,15 @@
             height: 80px;
             display: block;
             margin: 0 auto 20px;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+        .icono.zoom {
+            transform: scale(1.5);
+            background-image: url('https://example.com/sparkles.png'); /* Imagen de chispas doradas */
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: sparkles 1s infinite;
         }
         .testimonio {
             margin-top: 40px;
@@ -59,6 +78,15 @@
             width: 100%;
             border-radius: 10px;
             margin-top: 20px;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+        .testimonio img.zoom {
+            transform: scale(1.5);
+            background-image: url('https://example.com/sparkles.png'); /* Imagen de chispas doradas */
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: sparkles 1s infinite;
         }
         .testimonio p {
             background-color: rgba(0, 0, 0, 0.8);
@@ -93,11 +121,21 @@
             
             window.open(url, '_blank');
         }
+
+        function toggleZoom(event) {
+            event.target.classList.toggle('zoom');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.zoomable').forEach(function(element) {
+                element.addEventListener('click', toggleZoom);
+            });
+        });
     </script>
 </head>
 <body>
     <div class="container">
-        <img src="https://github.com/VentasMarosk/BetoSuerte/blob/330672ab03d7e6166338d841daf2eb72f3f23317/icono.png?raw=true" alt="Icono" class="icono">
+        <img src="https://github.com/VentasMarosk/BetoSuerte/blob/330672ab03d7e6166338d841daf2eb72f3f23317/icono.png?raw=true" alt="Icono" class="icono zoomable">
         <h1>Descubre tus Números de la Suerte Personalizados</h1>
         <p><strong>Obtén tu número de la suerte único basado en tu fecha de nacimiento y una tabla numerológica personalizada.</strong></p>
         <h2>Cómo Funciona</h2>
@@ -126,7 +164,7 @@
         <button onclick="enviarWhatsApp()">Enviar a WhatsApp</button>
 
         <div class="testimonio">
-            <img src="https://github.com/VentasMarosk/BetoSuerte/blob/9b2b3e1e7185a93136c8ab8f323ccf6b15b2f9c9/WhatsApp%20Image%202024-07-09%20at%201.49.15%20AM.jpeg?raw=true" alt="Comprobación de Ganadores">
+            <img src="https://github.com/VentasMarosk/BetoSuerte/blob/9b2b3e1e7185a93136c8ab8f323ccf6b15b2f9c9/WhatsApp%20Image%202024-07-09%20at%201.49.15%20AM.jpeg?raw=true" alt="Comprobación de Ganadores" class="zoomable">
             <p><strong>Testimonios de Ganadores:</strong> Muchas personas ya han encontrado la suerte con la ayuda de Danibeto. La veracidad de nuestros resultados está respaldada por numerosos ganadores que confían en nuestros números personalizados. ¡Déjate guiar por la suerte y únete a ellos!</p>
         </div>
     </div>
